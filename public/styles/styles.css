@@ -1,0 +1,199 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: rgb(246, 244, 244);
+	padding: 40px 20px;
+}
+
+.container {
+	max-width: 860px;
+	margin: 0 auto;
+	background-color: white;
+	padding: 40px;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+main {
+	display: grid;
+	justify-items: center;
+	max-width: 1200px;
+	margin: 0 auto;
+	gap: 20px;
+}
+
+form {
+	display: grid;
+	width: 100%;
+	max-width: 825px;
+	gap: 15px;
+}
+
+.form-row {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 20px;
+}
+
+.form-group {
+	display: grid;
+	gap: 3px;
+}
+
+.form-row:last-child {
+	grid-template-columns: 2fr 1fr;
+}
+
+label {
+	font-weight: bolder;
+}
+
+input[type="text"] {
+	width: 100%;
+	padding: 4px;
+}
+
+#meet {
+	width: 100%;
+	padding: 4px;
+	box-sizing: border-box;
+}
+
+#message {
+	width: 100%;
+	max-width: 825px;
+}
+
+h4 {
+	margin-bottom: 5px;
+}
+
+textarea {
+	width: 100%;
+	padding: 4px;
+	height: 100px;
+	box-sizing: border-box;
+	border: px solid #ccc;
+}
+
+#selectBtns {
+	width: 100%;
+	max-width: 825px;
+	display: grid;
+	gap: 10px;
+}
+
+#none,
+label[for="none"] {
+	display: none;
+}
+
+#checkbox-group {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+}
+
+#radio-group {
+	display: flex;
+	align-items: center;
+	gap: 1px;
+}
+
+#radio-group input[type="radio"] {
+	margin-left: 5px;
+}
+
+#radio-group input[type="radio"]:first-of-type {
+	margin-left: 0;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+select,
+textarea {
+	width: 100%;
+	padding: 4px;
+	box-sizing: border-box;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+}
+
+#submit-btn {
+	max-width: 75px;
+	padding: 8px 15px;
+	background-color: #5cb85c;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+@media (max-width: 992px) {
+	form:not(#selectBtns) {
+		/* Exclude the selectBtns from the default form rules */
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 15px;
+	}
+
+	.form-row {
+		display: contents;
+	}
+
+	.form-row:last-child {
+		display: contents;
+	}
+}
+
+@media (max-width: 768px) {
+	.container {
+		padding: 20px;
+	}
+
+	form:not(#selectBtns) {
+		grid-template-columns: 1fr;
+	}
+
+	.form-row {
+		display: contents;
+	}
+
+	.form-row:last-child {
+		display: contents;
+	}
+
+	#radio-group {
+		flex-wrap: wrap;
+	}
+}
+
+@media (max-width: 480px) {
+	body {
+		padding: 20px 10px;
+	}
+
+	.container {
+		padding: 20px 15px;
+	}
+
+	h1 {
+		font-size: 24px;
+	}
+
+	#submit-btn {
+		max-width: 100%;
+		width: 100%;
+	}
+}

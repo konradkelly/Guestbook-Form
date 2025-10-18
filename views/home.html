@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/png" href="../public/images/book.png" />
+		<link rel="stylesheet" href="../public/styles/styles.css" />
+		<title>Guestbook Form</title>
+	</head>
+	<body>
+		<div class="container">
+			<h1>Contact Form</h1>
+			<main>
+				<form>
+					<div class="form-row">
+						<div class="form-group">
+							<label for="fname">First Name</label>
+							<input type="text" id="fname" name="fname" />
+						</div>
+
+						<div class="form-group">
+							<label for="lname">Last Name</label>
+							<input type="text" id="lname" name="lname" />
+						</div>
+
+						<div class="form-group">
+							<label for="jTitle">Job Title</label>
+							<input type="text" id="jTitle" name="jTitle" />
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-group">
+							<label for="company">Company</label>
+							<input type="text" id="company" name="company" />
+						</div>
+
+						<div class="form-group">
+							<label for="linkedin">LinkedIn URL</label>
+							<input type="url" id="linkedin" name="linkedin" />
+						</div>
+
+						<div class="form-group">
+							<label for="email">Email Address</label>
+							<input type="email" id="email" name="email" />
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-group">
+							<label for="fname">How did we meet?</label>
+							<select id="meet" name="meet">
+								<option value="">Please select</option>
+								<option value="meet-value">In-person</option>
+								<option value="meet-value">Teams</option>
+								<option value="meet-value">Zoom</option>
+								<option value="meet-value">LinkedIn</option>
+								<option value="meet-value">Facebook</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="other">Other (Please specify)</label>
+							<input type="text" id="other" name="other" />
+						</div>
+					</div>
+				</form>
+				<section id="message">
+					<h4>Message</h4>
+					<textarea name="message-textarea" id="message-textarea"></textarea>
+				</section>
+				<form id="selectBtns">
+					<div id="checkbox-group">
+						<input type="checkbox" id="mailingList" name="mailingList" />
+						<label for="mailingList">Please add me to your mailing list</label>
+					</div>
+					<div id="radio-group">
+						<label>Choose an email format:</label>
+						<input type="radio" name="email-format" id="none" value="none" />
+						<label for="none">None</label>
+						<input type="radio" name="email-format" id="HTML" value="HTML" />
+						<label for="HTML">HTML</label>
+						<input type="radio" name="email-format" id="text" value="text" />
+						<label for="text">Text</label>
+					</div>
+					<button id="submit-btn">Submit</button>
+				</form>
+			</main>
+		</div>
+	</body>
+</html>
