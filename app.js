@@ -2,8 +2,8 @@ import express from "express";
 
 const app = express();
 
-// Enable static file serving
-app.use(express.static("public"));
+// Enable static file serving (use absolute path)
+app.use(express.static(path.join(__dirname, "public")));
 
 const PORT = 3003;
 
