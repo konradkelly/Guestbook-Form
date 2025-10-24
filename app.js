@@ -1,9 +1,10 @@
 import express from "express";
+import path from "path";
 
 const app = express();
 
 // Enable static file serving (use absolute path)
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(`${import.meta.dirname}/public`)));
 
 const PORT = 3003;
 
