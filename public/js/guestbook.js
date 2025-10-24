@@ -11,7 +11,20 @@ function handleVisibilityOfEmailFormatButtons() {
 	});
 }
 
-window.addEventListener(
-	"DOMContentLoaded",
-	handleVisibilityOfEmailFormatButtons
-);
+function handleVisibilityOfOtherField() {
+	const otherField = document.getElementById("other-group");
+	const meet = document.getElementById("meet");
+
+	addEventListener("change", function () {
+		if (meet.value === "other") {
+			otherField.style.display = "block";
+		} else {
+			otherField.style.display = "none";
+		}
+	});
+}
+
+window.addEventListener("DOMContentLoaded", function () {
+	handleVisibilityOfEmailFormatButtons();
+	handleVisibilityOfOtherField();
+});

@@ -14,12 +14,12 @@
 				<form>
 					<div class="form-row">
 						<div class="form-group">
-							<label for="fname">First Name</label>
+							<label for="fname" required>First Name</label>
 							<input type="text" id="fname" name="fname" />
 						</div>
 
 						<div class="form-group">
-							<label for="lname">Last Name</label>
+							<label for="lname" required>Last Name</label>
 							<input type="text" id="lname" name="lname" />
 						</div>
 
@@ -49,15 +49,16 @@
 							<label for="fname">How did we meet?</label>
 							<select id="meet" name="meet">
 								<option value="">Please select</option>
-								<option value="meet-value">In-person</option>
-								<option value="meet-value">Teams</option>
-								<option value="meet-value">Zoom</option>
-								<option value="meet-value">LinkedIn</option>
-								<option value="meet-value">Facebook</option>
+								<option value="in-person">In-person</option>
+								<option value="linkedin">LinkedIn</option>
+								<option value="facebook">Facebook</option>
+								<option value="teams">Teams</option>
+								<option value="zoom">Zoom</option>
+								<option value="other">Other</option>
 							</select>
 						</div>
-						<div class="form-group">
-							<label for="other">Other (Please specify)</label>
+						<div class="form-group" id="other-group" style="display: none">
+							<label for="other" id="other-field">Other (Please specify)</label>
 							<input type="text" id="other" name="other" />
 						</div>
 					</div>
