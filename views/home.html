@@ -14,34 +14,40 @@
 				<form>
 					<div class="form-row">
 						<div class="form-group">
-							<label for="fname" required>First Name</label>
+							<label for="fname">First Name</label>
 							<input type="text" id="fname" name="fname" />
+							<span id="err-fname" class="error-message"></span>
 						</div>
 
 						<div class="form-group">
-							<label for="lname" required>Last Name</label>
+							<label for="lname">Last Name</label>
 							<input type="text" id="lname" name="lname" />
+							<span id="err-lname" class="error-message"></span>
 						</div>
 
 						<div class="form-group">
 							<label for="jTitle">Job Title</label>
 							<input type="text" id="jTitle" name="jTitle" />
+							<span id="err-jTitle" class="error-message"></span>
 						</div>
 					</div>
 					<div class="form-row">
 						<div class="form-group">
 							<label for="company">Company</label>
 							<input type="text" id="company" name="company" />
+							<span id="err-company" class="error-message"></span>
 						</div>
 
 						<div class="form-group">
 							<label for="linkedin">LinkedIn URL</label>
 							<input type="url" id="linkedin" name="linkedin" />
+							<span id="err-linkedin" class="error-message"></span>
 						</div>
 
 						<div class="form-group">
 							<label for="email">Email Address</label>
 							<input type="email" id="email" name="email" />
+							<span id="err-email" class="error-message"></span>
 						</div>
 					</div>
 					<div class="form-row">
@@ -56,34 +62,37 @@
 								<option value="zoom">Zoom</option>
 								<option value="other">Other</option>
 							</select>
+							<span id="err-meet" class="error-message"></span>
 						</div>
 						<div class="form-group" id="other-group" style="display: none">
 							<label for="other" id="other-field">Other (Please specify)</label>
 							<input type="text" id="other" name="other" />
 						</div>
 					</div>
-				</form>
-				<section id="message">
-					<h4>Message</h4>
-					<textarea name="message-textarea" id="message-textarea"></textarea>
-				</section>
-				<form id="selectBtns">
-					<div id="checkbox-group">
-						<input type="checkbox" id="mailingList" name="mailingList" />
-						<label for="mailingList">Please add me to your mailing list</label>
-					</div>
-					<div id="radio-group" style="display: none">
-						<label>Choose an email format:</label>
-						<input type="radio" name="email-format" id="none" value="none" />
-						<label for="none">None</label>
-						<input type="radio" name="email-format" id="HTML" value="HTML" />
-						<label for="HTML">HTML</label>
-						<input type="radio" name="email-format" id="text" value="text" />
-						<label for="text">Text</label>
+					<section id="message">
+						<h4>Message</h4>
+						<textarea name="message-textarea" id="message-textarea"></textarea>
+					</section>
+					<div id="selectBtns">
+						<div id="checkbox-group">
+							<input type="checkbox" id="mailingList" name="mailingList" />
+							<label for="mailingList"
+								>Please add me to your mailing list</label
+							>
+						</div>
+						<div id="radio-group" style="display: none">
+							<label>Choose an email format:</label>
+							<input type="radio" name="email-format" id="none" value="none" />
+							<label for="none">None</label>
+							<input type="radio" name="email-format" id="HTML" value="HTML" />
+							<label for="HTML">HTML</label>
+							<input type="radio" name="email-format" id="text" value="text" />
+							<label for="text">Text</label>
+						</div>
 					</div>
 					<button id="submit-btn">Submit</button>
 				</form>
-				<p>https://github.com/konradkelly/Guestbook-Form/</p>
+				<h4>https://github.com/konradkelly/Guestbook-Form/</h4>
 			</main>
 		</div>
 	</body>

@@ -63,6 +63,12 @@ input[type="text"] {
 	padding: 4px;
 }
 
+.error-message {
+	color: red;
+	font: 0.9em;
+	margin-top: 4px;
+}
+
 #meet {
 	width: 100%;
 	padding: 4px;
