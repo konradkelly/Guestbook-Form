@@ -162,7 +162,7 @@ function handleFormSubmit() {
 		// Submit form if valid. Will resolve if variable is valid is equal to the boolean 'true'.
 		if (isValid) {
 			console.log("The form is valid! Now submitting.");
-			//form.submit(); // will uncomment after building backend
+			form.submit(); // will uncomment after building backend
 		} else {
 			console.log("Error: the form contains errors to be resolved.");
 		}
