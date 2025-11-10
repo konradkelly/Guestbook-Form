@@ -7,6 +7,30 @@
 body {
 	font-family: Arial, Helvetica, sans-serif;
 	background-color: rgb(246, 244, 244);
+	padding: 0;
+}
+
+.main-nav {
+	background-color: #333;
+	padding: 15px 20px;
+	margin: 0;
+	width: 100%;
+	display: flex;
+	gap: 20px;
+}
+
+.main-nav a {
+	color: white;
+	text-decoration: none;
+	transition: opacity 0.2s;
+}
+
+.main-nav a:hover {
+	opacity: 0.8;
+}
+
+/* Add wrapper for content that needs padding */
+.page-content {
 	padding: 40px 20px;
 }
 
@@ -149,7 +173,7 @@ textarea {
 /* Thank you page styles - ADD THESE HERE, BEFORE MEDIA QUERIES */
 #home-btn {
 	padding: 8px 15px;
-	background-color: #5cb85c;
+	background-color: #d000ff;
 	color: white;
 	border: none;
 	border-radius: 4px;
@@ -158,12 +182,12 @@ textarea {
 }
 
 #home-btn:hover {
-	background-color: #4cae4c;
+	background-color: #b616da;
 }
 
 #display-admin-route {
 	display: block;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 	color: #337ab7;
 	text-decoration: none;
 }
@@ -174,6 +198,113 @@ textarea {
 
 #link-to-homepage {
 	text-decoration: none;
+}
+
+.content-card {
+	max-width: 800px;
+	margin: 2rem auto;
+	padding: 1.5rem;
+	background-color: #fff;
+	border-radius: 8px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.content-card > h2 {
+	text-align: center;
+}
+
+.guestbook-entry {
+	margin: 0.75rem 0;
+	padding: 0.75rem;
+	background-color: #fff;
+	border-radius: 6px;
+}
+
+.guestbook-entry h3 {
+	margin-top: 0;
+	margin-bottom: 0.5rem;
+	text-align: center;
+}
+
+.guestbook-entry fieldset {
+	margin: 0.75rem 0;
+	padding: 0.5rem;
+	border: 2px solid #5cb85c;
+	border-radius: 6px;
+	background-color: #fff;
+}
+
+.guestbook-entry legend {
+	padding: 0.2rem 0.5rem;
+	font-weight: bold;
+	color: #5cb85c;
+}
+
+.guestbook-entry p {
+	margin: 0.35rem 0;
+}
+
+.content-card > a {
+	display: block;
+	text-align: center;
+	margin: 0.75rem 0;
+}
+
+#home-btn {
+	background-color: #5cb85c;
+	color: white;
+	border: none;
+	padding: 0.5rem 1rem;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 1rem;
+}
+
+#home-btn:hover {
+	background-color: #4cae4c;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+	.content-card {
+		margin: 0.5rem;
+		padding: 0.75rem;
+		border-radius: 4px;
+	}
+
+	.content-card > h2 {
+		font-size: 1.25rem;
+		margin-bottom: 0.75rem;
+	}
+
+	.guestbook-entry {
+		padding: 0.5rem;
+	}
+
+	.guestbook-entry h3 {
+		font-size: 1.1rem;
+	}
+
+	.guestbook-entry fieldset {
+		margin: 0.5rem 0;
+		padding: 0.5rem;
+	}
+
+	.guestbook-entry legend {
+		font-size: 0.9rem;
+	}
+
+	.guestbook-entry p {
+		font-size: 0.9rem;
+		word-break: break-word;
+	}
+
+	#home-btn,
+	#display-admin-route {
+		width: 100%;
+		padding: 0.75rem;
+		box-sizing: border-box;
+	}
 }
 
 /* Media queries */

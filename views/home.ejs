@@ -2,99 +2,256 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" type="image/png" href="/images/book.png" />
+		<title>Konrad Kelly - HTML Resume</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" type="image/x-icon" href="/images/favicon-16x16.png" />
 		<link rel="stylesheet" href="/styles/styles.css" />
-		<title>Guestbook Form</title>
+		<link rel="stylesheet" href="/styles/resume-styles.css" />
 	</head>
 	<body>
-		<div class="container">
-			<h1>Contact Form</h1>
-			<main>
-				<form method="POST" action="/submit">
-					<div class="form-row">
-						<div class="form-group">
-							<label for="fname">First Name</label>
-							<input type="text" id="fname" name="fname" />
-							<span id="err-fname" class="error-message"></span>
-						</div>
+		<%- include('partials/nav') %>
+		<div class="resume-content">
+			<div class="header">
+				<img
+					src="/images/resume_photo.jpg"
+					alt="Profile Photo"
+					class="photo-top-right"
+				/>
+				<h1>Konrad Kelly</h1>
+				<div class="contact">
+					<a href="mailto:Kelly.Konrad@student.greenriver.edu"
+						>Kelly.Konrad@student.greenriver.edu</a
+					>
+					| (425) 516-3781 |
+					<a href="https://github.com/konradkelly">github.com/konradkelly</a>
+					|
 
-						<div class="form-group">
-							<label for="lname">Last Name</label>
-							<input type="text" id="lname" name="lname" />
-							<span id="err-lname" class="error-message"></span>
-						</div>
+					<a
+						href="https://www.linkedin.com/in/konrad-kelly-34421a133/"
+						target="_blank"
+						rel="noopener"
+						>https://www.linkedin.com/in/konrad-kelly-34421a133/</a
+					>
+				</div>
+			</div>
 
-						<div class="form-group">
-							<label for="jTitle">Job Title</label>
-							<input type="text" id="jTitle" name="jTitle" />
-							<span id="err-jTitle" class="error-message"></span>
-						</div>
-					</div>
-					<div class="form-row">
-						<div class="form-group">
-							<label for="company">Company</label>
-							<input type="text" id="company" name="company" />
-							<span id="err-company" class="error-message"></span>
-						</div>
+			<div class="section">
+				<div class="section-title">Profile</div>
+				Motivated software development student passionate about AI-driven
+				systems, cloud computing, and DevOps. Seeking an internship to build
+				intelligent, scalable, and data-compliant software that delivers
+				meaningful impact.
+			</div>
 
-						<div class="form-group">
-							<label for="linkedin">LinkedIn URL</label>
-							<input type="url" id="linkedin" name="linkedin" />
-							<span id="err-linkedin" class="error-message"></span>
-						</div>
+			<div class="section">
+				<div class="section-title">Education</div>
+				<div class="education-info">
+					<div>
+						<b>Bachelor of Applied Science in Software Development</b><br />
+						Green River College, Auburn, WA
+					</div>
+					<div class="date-range">Expected Graduation: June 2027</div>
+				</div>
+				Relevant Coursework: Data Structures, Algorithms, Cloud Computing,
+				Software Engineering, Databases, Unit Testing, Linux, and Version
+				Control.
+				<br /><br />
 
-						<div class="form-group">
-							<label for="email">Email Address</label>
-							<input type="email" id="email" name="email" />
-							<span id="err-email" class="error-message"></span>
-						</div>
+				<div class="education-info">
+					<div>
+						<b>Bachelor of Arts in Interdisciplinary Humanities</b><br />
+						The Evergreen State College, Olympia, WA
 					</div>
-					<div class="form-row">
-						<div class="form-group">
-							<label for="fname">How did we meet?</label>
-							<select id="meet" name="meet">
-								<option value="">Please select</option>
-								<option value="in-person">In-person</option>
-								<option value="linkedin">LinkedIn</option>
-								<option value="facebook">Facebook</option>
-								<option value="teams">Teams</option>
-								<option value="zoom">Zoom</option>
-								<option value="other">Other</option>
-							</select>
-							<span id="err-meet" class="error-message"></span>
-						</div>
-						<div class="form-group" id="other-group" style="display: none">
-							<label for="other" id="other-field">Other (Please specify)</label>
-							<input type="text" id="other" name="other" />
-						</div>
+					<div class="date-range">Apr 2014 – Jun 2017</div>
+				</div>
+				Relevant skills: Benefited from research writing, independent and team
+				projects, participating in seminars, and giving presentations. Also
+				gained knowledge of statistics and Microsoft Office tools including
+				Excel, Word, and PowerPoint.
+				<br /><br />
+
+				<div class="education-info">
+					<div>
+						<b>Certificate: CodePath Technical Interview Prep</b>
 					</div>
-					<section id="message">
-						<h4>Message</h4>
-						<textarea name="message-textarea" id="message-textarea"></textarea>
-					</section>
-					<div id="selectBtns">
-						<div id="checkbox-group">
-							<input type="checkbox" id="mailingList" name="mailingList" />
-							<label for="mailingList"
-								>Please add me to your mailing list</label
-							>
-						</div>
-						<div id="radio-group" style="display: none">
-							<label>Choose an email format:</label>
-							<input type="radio" name="email-format" id="none" value="none" />
-							<label for="none">None</label>
-							<input type="radio" name="email-format" id="HTML" value="HTML" />
-							<label for="HTML">HTML</label>
-							<input type="radio" name="email-format" id="text" value="text" />
-							<label for="text">Text</label>
-						</div>
-					</div>
-					<button id="submit-btn" type="submit">Submit</button>
-				</form>
-				<h4>https://github.com/konradkelly/Guestbook-Form/</h4>
-			</main>
+					<div class="date-range">Summer 2025</div>
+				</div>
+				Deepened understanding of data structures and algorithms and practiced
+				for technical interviews with peers in Tech.
+			</div>
+
+			<div class="section">
+				<div class="section-title">Projects</div>
+				<ul class="item-list">
+					<li>
+						<b>Notifi — Full-Stack To-Do List Application</b> <br />
+						<a href="https://github.com/konradkelly/Notifi"
+							>github.com/konradkelly/Notifi</a
+						>
+						<ul>
+							<li>
+								Developed a full-stack to-do list application with secure user
+								authentication.
+							</li>
+							<li>
+								Implemented custom authentication using
+								<b>JWT middleware</b> and <b>bcrypt</b> for password hashing.
+							</li>
+							<li>
+								Designed and managed a <b>MySQL database</b> with full CRUD
+								operations for user and task data.
+							</li>
+							<li>
+								Built with <b>Node.js</b> and <b>Express.js</b>, applying
+								backend development and security best practices.
+							</li>
+						</ul>
+					</li>
+					<li>
+						<b>Weather Dashboard — API-Integrated Full-Stack Application</b>
+						<br />
+						<a href="https://github.com/konradkelly/weather-dashboard"
+							>github.com/konradkelly/weather-dashboard</a
+						>
+						<ul>
+							<li>
+								Built a weather dashboard that retrieves and displays real-time
+								forecasts using the <b>OpenWeather API</b>.
+							</li>
+							<li>
+								Designed RESTful routes in <b>Express.js</b> to support both
+								city-based and geolocation-based queries.
+							</li>
+							<li>
+								Integrated a <b>SQLite database</b> to log and display recent
+								user searches.
+							</li>
+							<li>
+								Created helper functions for data formatting, error handling,
+								and forecast aggregation.
+							</li>
+							<li>
+								Strengthened skills in API integration, database persistence,
+								and backend development.
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+
+			<div class="section">
+				<div class="section-title">Technical Skills</div>
+				<div class="skills">
+					<b>Web Development:</b>
+					<span class="skill-tag">HTML</span>
+					<span class="skill-tag">CSS</span>
+					<span class="skill-tag">JavaScript</span>
+					<span class="skill-tag">Node.js</span>
+					<span class="skill-tag">Express.js</span>
+					<span class="skill-tag">Java</span>
+					<span class="skill-tag">JUnit</span>
+					<span class="skill-tag">Jest</span>
+					<span class="skill-tag">Python</span>
+				</div>
+				<div class="skills">
+					<b>Cloud & DevOps:</b>
+					<span class="skill-tag">Git/GitHub</span>
+					<span class="skill-tag">Linux</span>
+					<span class="skill-tag">AWS</span>
+					<span class="skill-tag">Azure</span>
+					<span class="skill-tag">GCP</span>
+					<span class="skill-tag">Docker</span>
+					<span class="skill-tag">CI/CD</span>
+					<span class="skill-tag">Postman</span>
+				</div>
+				<div class="skills">
+					<b>Databases:</b>
+					<span class="skill-tag">MySQL</span>
+					<span class="skill-tag">PostgreSQL</span>
+					<span class="skill-tag">SQLite</span>
+				</div>
+				<div class="skills">
+					<b>AI:</b>
+					<span class="skill-tag">Prompt Engineering</span>
+					<span class="skill-tag">LLMs</span>
+				</div>
+			</div>
+
+			<div class="section">
+				<div class="section-title">Professional Skills</div>
+				<span class="skill-tag">Problem-Solving</span>
+				<span class="skill-tag">Analytical Thinking</span>
+				<span class="skill-tag">Communication</span>
+				<span class="skill-tag">Teamwork</span>
+				<span class="skill-tag">Attention to Detail</span>
+				<span class="skill-tag">Time Management</span>
+				<span class="skill-tag">Adaptability</span>
+			</div>
+
+			<div class="section">
+				<div class="section-title">Languages</div>
+				<b>English:</b> Native/Fluent <br />
+				<b>Chinese (Mandarin):</b> Intermediate (Speaking &amp; Comprehension)
+			</div>
+
+			<div class="section">
+				<div class="section-title">Professional Experience</div>
+
+				<div class="experience-info">
+					<div><b>ESL Teacher</b> — Elementary and Training Schools, China</div>
+					<div class="date-range">Sep 2017 – Aug 2022</div>
+				</div>
+				<ul class="item-list">
+					<li>
+						Developed and implemented engaging lesson plans and curriculum for
+						elementary students, demonstrating strong planning and
+						organizational skills.
+					</li>
+					<li>
+						Managed classroom environments effectively while adapting teaching
+						methods to diverse learning styles and cultural backgrounds.
+					</li>
+					<li>
+						Collaborated with international colleagues, parents, and
+						administrative staff to ensure student success and maintain clear
+						communication across language barriers.
+					</li>
+					<li>
+						Applied problem-solving and adaptability skills daily while working
+						in a cross-cultural environment, strengthening intercultural
+						communication abilities.
+					</li>
+				</ul>
+
+				<br />
+
+				<div class="experience-info">
+					<div><b>Pharmacy Technician</b> — Rite Aid, Kenmore, WA</div>
+					<div class="date-range">Feb 2023 – Aug 2025</div>
+				</div>
+				<ul class="item-list">
+					<li>
+						Ensured accuracy and compliance when preparing and dispensing
+						medications, demonstrating strong attention to detail in regulated
+						environments.
+					</li>
+					<li>
+						Delivered exceptional customer support by resolving inquiries and
+						processing insurance claims, strengthening communication and
+						problem-solving skills.
+					</li>
+					<li>
+						Organized patient records and optimized inventory processes,
+						applying workflow efficiency principles relevant to system and data
+						management.
+					</li>
+					<li>
+						Collaborated with pharmacists and staff to maintain a reliable,
+						high-performing pharmacy operation, reflecting teamwork and
+						accountability.
+					</li>
+				</ul>
+			</div>
 		</div>
 	</body>
-	<script src="js/guestbook.js"></script>
 </html>

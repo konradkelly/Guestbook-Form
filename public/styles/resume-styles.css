@@ -1,0 +1,275 @@
+/* CSS variables for base color palette */
+:root {
+	--primary-color: #325a7a;
+	--secondary-color: #4e7eb2;
+	--accent-color: #e0e0e0;
+	--text-dark: #222;
+	--text-muted: #555;
+	--text-light: #777;
+	--border-color: #ccc;
+	--background-light: #f9f9f9;
+	--background-white: #fff;
+	--link-hover: #1a3a4f;
+}
+
+html {
+	font-size: 16px;
+}
+
+body {
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1rem;
+	line-height: 1.6;
+	letter-spacing: 0.01em;
+	background: var(--background-light);
+	color: var(--text-dark);
+	padding: 0;
+}
+
+.resume-content {
+	max-width: 1300px;
+	margin: 0 auto;
+	padding: 0.75in;
+}
+
+.header {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	grid-template-rows: auto auto;
+	grid-template-areas:
+		"name photo"
+		"contact photo";
+	gap: 0.5em;
+	align-items: start;
+	margin-bottom: 1.5em;
+	padding-top: 0;
+}
+
+.header h1 {
+	grid-area: name;
+	font-size: 2em;
+	font-weight: bold;
+	margin: 0;
+	color: var(--text-dark);
+	letter-spacing: 0.02em;
+	align-self: center;
+}
+
+.header .contact {
+	grid-area: contact;
+	font-size: 1em;
+	color: var(--text-muted);
+	line-height: 1.5;
+	margin: 0;
+}
+
+a {
+	color: var(--primary-color);
+	text-decoration: none;
+	transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+a:focus {
+	outline: 2px solid var(--primary-color);
+	outline-offset: 2px;
+	text-decoration: underline;
+	border-radius: 2px;
+}
+
+.photo-top-right {
+	grid-area: photo;
+	width: 100px;
+	height: 100px;
+	object-fit: cover;
+	border-radius: 12px;
+	border: 2px solid var(--border-color);
+	background: var(--background-white);
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	justify-self: end;
+	align-self: start;
+}
+
+.photo-top-right:hover {
+	transform: scale(1.05);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.section {
+	margin-bottom: 1.5em;
+	padding: 0.5em 0;
+}
+
+.section-title {
+	font-size: 1.2em;
+	font-weight: bold;
+	color: var(--primary-color);
+	border-bottom: 2px solid var(--border-color);
+	padding-bottom: 0.15em;
+	margin-bottom: 0.5em;
+	margin-top: 1em;
+	letter-spacing: 0.03em;
+}
+
+.skill-tag {
+	display: inline-block;
+	background: var(--accent-color);
+	color: var(--text-dark);
+	padding: 5px 12px;
+	margin: 3px 3px 3px 0;
+	border-radius: 6px;
+	font-size: 0.93em;
+	font-family: Arial, Helvetica, sans-serif;
+	transition: background-color 0.2s ease, transform 0.2s ease;
+	line-height: 1.4;
+}
+
+.skill-tag:hover {
+	background: #d0d0d0;
+	transform: translateY(-1px);
+}
+
+.item-list {
+	list-style-type: disc;
+	margin-left: 1.5em;
+	padding-left: 0;
+	line-height: 1.7;
+}
+
+.item-list li {
+	margin-bottom: 0.4em;
+	padding-left: 0.3em;
+}
+
+.experience-title {
+	font-weight: bold;
+	margin-top: 1em;
+	color: var(--text-dark);
+}
+
+.date-range {
+	font-style: italic;
+	color: var(--text-light);
+	font-size: 0.95em;
+	text-align: right;
+}
+.education-info {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	width: 100%;
+}
+.experience-info {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	width: 100%;
+	margin-bottom: 0.4em;
+}
+
+@media (max-width: 1400px) {
+	body {
+		margin: 3vw;
+		padding: 3vw;
+	}
+}
+
+@media (max-width: 1300px) {
+	.header {
+		grid-template-columns: 1fr;
+		grid-template-rows: auto auto auto;
+		grid-template-areas:
+			"photo"
+			"name"
+			"contact";
+		text-align: center;
+		justify-items: center;
+	}
+
+	.photo-top-right {
+		justify-self: center;
+		width: 90px;
+		height: 90px;
+	}
+}
+
+/* Tablets and small laptops*/
+@media (max-width: 768px) {
+	body {
+		margin: 4vw;
+		padding: 4vw;
+		font-size: 0.95rem;
+	}
+
+	.header h1 {
+		font-size: 1.6em;
+	}
+
+	.header .contact {
+		font-size: 0.9em;
+	}
+
+	.section-title {
+		font-size: 1.1em;
+	}
+
+	.date-range {
+		font-size: 0.9em;
+	}
+
+	.photo-top-right {
+		width: 80px;
+		height: 80px;
+	}
+
+	.experience-info {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 0.2em;
+	}
+
+	.experience-info .date-range {
+		text-align: left;
+	}
+}
+
+.table {
+	grid-template-columns: [details-start] 1fr [details-end];
+	gap: 0.3em;
+}
+
+.table td:first-child,
+.table td:last-child {
+	grid-column: details-start / details-end;
+}
+
+.date-range {
+	text-align: left;
+}
+
+/* Mobile devices*/
+@media (max-width: 600px) {
+	body {
+		margin: 5vw;
+		padding: 5vw;
+		font-size: 0.9rem;
+	}
+
+	.header h1 {
+		font-size: 1.4em;
+	}
+
+	.section-title {
+		font-size: 1em;
+	}
+
+	.skill-tag {
+		font-size: 0.85em;
+		padding: 4px 10px;
+	}
+
+	.item-list {
+		margin-left: 1.2em;
+	}
+}

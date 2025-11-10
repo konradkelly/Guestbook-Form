@@ -5,6 +5,7 @@ const app = express();
 
 const guestbookEntries = [];
 
+app.set("view engine", "ejs");
 // Enable static file serving (use absolute path)
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
@@ -12,7 +13,11 @@ app.use(express.urlencoded({ extended: true }));
 const PORT = 3003;
 
 app.get("/", (req, res) => {
-	res.sendFile(`${import.meta.dirname}/views/home.html`);
+	res.render("home");
+});
+
+app.get("/contact", (req, res) => {
+	res.render("contact");
 });
 
 app.post("/submit", (req, res) => {
@@ -40,11 +45,12 @@ app.post("/submit", (req, res) => {
 });
 
 app.get("/confirmation", (req, res) => {
-	res.sendFile(`${import.meta.dirname}/views/confirmation.html`);
+	const entry = guestbookEntries[guestbookEntries.length - 1];
+	res.render("confirmation.ejs", { entry });
 });
 
 app.get("/admin", (req, res) => {
-	res.send(guestbookEntries);
+	res.render("admin", { guestbookEntry: guestbookEntries });
 });
 
 app.listen(PORT, () => {
