@@ -1,58 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="/styles/styles.css" />
-		<title>Confirmation</title>
-	</head>
-	<body>
-		<%- include('partials/nav') %>
-		<div class="content-card">
-			<h2>Thank you for contacting us! We will follow up with you soon!</h2>
-
-			<div class="guestbook-entry">
-				<h3>Your Submission Details:</h3>
-
-				<fieldset>
-					<legend>Personal Information</legend>
-					<p>
-						<strong>Name:</strong> <%= entry.firstName %> <%= entry.lastName %>
-					</p>
-					<p><strong>Job Title:</strong> <%= entry.jobTitle %></p>
-					<p><strong>Company:</strong> <%= entry.company %></p>
-					<p><strong>LinkedIn:</strong> <%= entry.linkedIn %></p>
-					<p><strong>Email:</strong> <%= entry.email %></p>
-				</fieldset>
-
-				<fieldset>
-					<legend>Connection Details</legend>
-					<p><strong>How We Met:</strong> <%= entry.howWeMet %></p>
-					<% if (entry.other) { %>
-					<p><strong>Other:</strong> <%= entry.other %></p>
-					<% } %> <% if (entry.message) { %>
-					<p><strong>Message:</strong> <%= entry.message %></p>
-					<% } %>
-				</fieldset>
-
-				<fieldset>
-					<legend>Preferences</legend>
-					<p>
-						<strong>Mailing List:</strong> <% if (entry.mailingList) { %>Yes<% }
-						else { %>No<% } %>
-					</p>
-					<p><strong>Email Format:</strong> <%= entry.emailFormat %></p>
-					<p>
-						<strong>Submitted:</strong> <%= new
-						Date(entry.timestamp).toLocaleString() %>
-					</p>
-				</fieldset>
-			</div>
-
-			<a id="display-admin-route" href="/admin">Display Admin Route</a>
-			<a id="link-to-homepage" href="/">
-				<button id="home-btn">Return to Homepage</button>
-			</a>
-		</div>
-	</body>
+        <head>
+                <meta charset="UTF-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <link rel="stylesheet" href="/styles/styles.css" />
+                <title>Confirmation</title>
+        </head>
+        <body>
+                <%- include('partials/nav') %>
+                <div class="content-card">
+                        <h2>Thank you for contacting us! We will follow up with you soon!</h2>
+                        <div class="guestbook-entry">
+                                <h3>Your Submission Details:</h3>
+                                <fieldset>
+                                        <legend>Personal Information</legend>
+                                        <p>
+                                                <strong>Name:</strong> <%= contact.firstName %> <%= contact.lastName %>
+                                        </p>
+                                        <p><strong>Job Title:</strong> <%= contact.jobTitle %></p>
+                                        <p><strong>Company:</strong> <%= contact.company %></p>
+                                        <p><strong>LinkedIn:</strong> <%= contact.linkedin %></p>
+                                        <p><strong>Email:</strong> <%= contact.email %></p>
+                                </fieldset>
+                                <fieldset>
+                                        <legend>Connection Details</legend>
+                                        <p><strong>How We Met:</strong> <%= contact.howWeMet %></p>
+                                        <% if (contact.other) { %>
+                                        <p><strong>Other:</strong> <%= contact.other %></p>
+                                        <% } %> <% if (contact.message) { %>
+                                        <p><strong>Message:</strong> <%= contact.message %></p>
+                                        <% } %>
+                                </fieldset>
+                                <fieldset>
+                                        <legend>Preferences</legend>
+                                        <p>
+                                                <strong>Mailing List:</strong> <% if (contact.mailingList) { %>Yes<% }
+                                                else { %>No<% } %>
+                                        </p>
+                                        <p><strong>Email Format:</strong> <%= contact.emailFormat %></p>
+                                        <p>
+                                                <strong>Submitted:</strong> <%= new
+                                                Date(contact.timestamp).toLocaleString() %>
+                                        </p>
+                                </fieldset>
+                        </div>
+                        <a id="display-admin-route" href="/admin">Display Admin Route</a>
+                        <a id="link-to-homepage" href="/">
+                                <button id="home-btn">Return to Homepage</button>
+                        </a>
+                </div>
+        </body>
 </html>

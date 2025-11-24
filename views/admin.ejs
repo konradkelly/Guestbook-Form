@@ -1,60 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Admin Page</title>
-
-		<!-- Stylesheets-->
-		<link rel="stylesheet" href="styles/styles.css" />
-		<link
-			rel="stylesheet"
-			href="//cdn.datatables.net/2.3.4/css/dataTables.dataTables.min.css"
-		/>
-
-		<script src="js/guestbook.js" defer></script>
-		<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-		<script src="//cdn.datatables.net/2.3.4/js/dataTables.min.js"></script>
-	</head>
-	<body>
-		<%- include('partials/nav') %>
-		<h1>Admin Page</h1>
-		<table id="bookings-table" class="display">
-			<thead>
-				<tr>
-					<th>Name</th>
-					<th>Email</th>
-					<th>Job Title</th>
-					<th>Company</th>
-					<th>LinkedIn</th>
-					<th>How We Met</th>
-					<th>Other</th>
-					<th>Message</th>
-					<th>Mailing List</th>
-					<th>Email Format</th>
-					<th>Date/Time</th>
-				</tr>
-			</thead>
-			<tbody>
-				<% guestbookEntry.forEach(entry => { %>
-				<tr>
-					<td><%= entry.firstName %> <%= entry.lastName %></td>
-					<td><%= entry.email %></td>
-					<td><%= entry.jobTitle %></td>
-					<td><%= entry.company %></td>
-					<td><%= entry.linkedIn %></td>
-					<td><%= entry.howWeMet %></td>
-					<td><%= entry.other %></td>
-					<td><%= entry.message %></td>
-					<td><%= entry.mailingList %></td>
-					<td><%= entry.emailFormat %></td>
-					<td><%= new Date(entry.timestamp).toLocaleString() %></td>
-				</tr>
-				<% }); %>
-			</tbody>
-		</table>
-		<script defer>
-			let table = new DataTable("#bookings-table");
-		</script>
-	</body>
+        <head>
+                <meta charset="UTF-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <title>Admin Page</title>
+                <!-- Stylesheets-->
+                <link rel="stylesheet" href="styles/styles.css" />
+                <link
+                        rel="stylesheet"
+                        href="//cdn.datatables.net/2.3.4/css/dataTables.dataTables.min.css"
+                />
+                <script src="js/guestbook.js" defer></script>
+                <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+                <script src="//cdn.datatables.net/2.3.4/js/dataTables.min.js"></script>
+        </head>
+        <body>
+                <%- include('partials/nav') %>
+                <h1>Admin Page</h1>
+                <table id="bookings-table" class="display">
+                        <thead>
+                                <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Job Title</th>
+                                        <th>Company</th>
+                                        <th>LinkedIn</th>
+                                        <th>How We Met</th>
+                                        <th>Other</th>
+                                        <th>Message</th>
+                                        <th>Mailing List</th>
+                                        <th>Email Format</th>
+                                        <th>Date/Time</th>
+                                </tr>
+                        </thead>
+                        <tbody>
+                                <% contact.forEach(contact => { %>
+                                <tr>
+                                        <td><%= contact.firstName %> <%= contact.lastName %></td>
+                                        <td><%= contact.email %></td>
+                                        <td><%= contact.jobTitle || 'N/A' %></td>
+                                        <td><%= contact.company || 'N/A' %></td>
+                                        <td><%= contact.linkedIn || 'N/A' %></td>
+                                        <td><%= contact.howWeMet %></td>
+                                        <td><%= contact.other || 'N/A' %></td>
+                                        <td><%= contact.message || 'N/A' %></td>
+                                        <td><%= contact.mailingList ? 'Yes' : 'No' %></td>
+                                        <td><%= contact.emailFormat %></td>
+                                        <td><%= new Date(contact.timestamp).toLocaleString() %></td>
+                                </tr>
+                                <% }); %>
+                        </tbody>
+                </table>
+                <script>
+                        let table = new DataTable("#bookings-table");
+                </script>
+        </body>
 </html>

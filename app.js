@@ -1,58 +1,96 @@
 import express from "express";
 import path from "path";
+import mysql2 from 'mysql2';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const app = express();
 
-const guestbookEntries = [];
+const pool = mysql2.createPool({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    port: process.env.DB_PORT
+}).promise();
 
 app.set("view engine", "ejs");
-// Enable static file serving (use absolute path)
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
 const PORT = 3003;
 
 app.get("/", (req, res) => {
-	res.render("home");
+    res.render("home");
 });
 
 app.get("/contact", (req, res) => {
-	res.render("contact");
+    res.render("contact");
 });
 
-app.post("/submit", (req, res) => {
-	const entry = {
-		id: guestbookEntries.length + 1,
-		firstName: req.body.fname,
-		lastName: req.body.lname,
-		jobTitle: req.body.jTitle,
-		company: req.body.company,
-		linkedIn: req.body.linkedin,
-		email: req.body.email,
-		howWeMet: req.body.meet,
-		other: req.body.other || "",
-		message: req.body["message-textarea"] || "",
-		mailingList: req.body.mailingList === "on",
-		emailFormat: req.body["email-format"] || "none",
-		timestamp: new Date().toISOString(),
-	};
-
-	guestbookEntries.push(entry);
-
-	console.log(entry);
-
-	res.redirect("/confirmation");
+app.post("/contact", async (req, res) => {
+    console.log("=== POST /contact started ===");
+    console.log("Form data:", req.body);
+    try {
+        const { fname, lname, jTitle, company, linkedin, email, meet, other, mailingList } = req.body;
+        const message = req.body['message-textarea'];
+        const emailFormat = req.body['email-format'];
+        
+        const sql = `INSERT INTO contacts (firstName, lastName, jobTitle, company, linkedin, email, howWeMet, message, mailingList, emailFormat)
+                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+        const selectedEmailFormat = emailFormat || 'html';
+        const [result] = await pool.query(sql, [
+            fname || null,
+            lname || null,
+            jTitle || null,
+            company || null,
+            linkedin || null,
+            email || null,
+            meet || null,
+            message || null,
+            mailingList === 'on',
+            selectedEmailFormat
+        ]);
+        console.log("✓ Insert successful! ID:", result.insertId);
+        const contact = {
+            id: result.insertId,
+            firstName: fname,
+            lastName: lname,
+            jobTitle: jTitle,
+            company: company,
+            linkedin: linkedin,
+            email: email,
+            howWeMet: meet,
+            other: other,
+            message: message,
+            mailingList: mailingList === 'on',
+            emailFormat: selectedEmailFormat,
+            timestamp: new Date()
+        };
+        res.render("confirmation", { contact });
+    } catch (err) {
+        console.error("✗ Database error:");
+        console.error("  Message:", err.message);
+        console.error("  Code:", err.code);
+        console.error("  Stack:", err.stack);
+        res.status(500).send(`Error: ${err.message}`);
+    }
 });
 
 app.get("/confirmation", (req, res) => {
-	const entry = guestbookEntries[guestbookEntries.length - 1];
-	res.render("confirmation.ejs", { entry });
+    res.render("confirmation");
 });
 
-app.get("/admin", (req, res) => {
-	res.render("admin", { guestbookEntry: guestbookEntries });
+app.get("/admin", async (req, res) => {
+    try {
+        const [rows] = await pool.query('SELECT * FROM contacts ORDER BY timestamp DESC');
+        res.render("admin", { contact: rows });
+    } catch (err) {
+        console.log("Database error: " + err);
+        res.status(500).send("Error loading contacts");
+    }
 });
 
 app.listen(PORT, () => {
-	console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`Server is running on http://localhost:${PORT}`);
 });
